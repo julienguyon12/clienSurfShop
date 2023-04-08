@@ -1,0 +1,30 @@
+@mixin devices($breakpoint) {
+  //the name of the mixin is devices
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 550px) {
+      @content;
+    }
+  }
+}
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@include devices(mobile) {
+  .list {
+    justify-content: center;
+    gap: 20px;
+  }
+}

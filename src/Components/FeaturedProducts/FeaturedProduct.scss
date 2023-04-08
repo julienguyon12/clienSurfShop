@@ -1,0 +1,45 @@
+.featuredProducts {
+  margin: clamp(1rem, 8vw + 1rem, 20rem) clamp(1rem, 8vw + 1rem, 20rem);
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    h1 {
+      flex: 2;
+      text-transform: capitalize;
+      margin-right: clamp(1rem, 8vw + 1rem, 20rem);
+    }
+
+    p {
+      flex: 3;
+      color: gray;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    overflow-x: auto;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    overflow-y: hidden;
+  }
+  .bottom::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  .bottom::-webkit-scrollbar-track {
+    background-color: #e4e4e400;
+    border-radius: 100px;
+  }
+
+  .bottom::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 5px solid transparent;
+    background-clip: content-box;
+    background-color: #b1b1b1;
+  }
+}

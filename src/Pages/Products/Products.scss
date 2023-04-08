@@ -1,0 +1,152 @@
+@mixin devices($breakpoint) {
+  //the name of the mixin is devices
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 1000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 550px) {
+      @content;
+    }
+  }
+}
+.products {
+  padding: 30px 50px;
+  display: flex;
+
+  .left {
+    flex: 1;
+    position: sticky;
+    height: 100%;
+    top: 50px;
+
+    .filterItem {
+      margin-bottom: 30px;
+      button {
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        overflow: visible;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+      }
+
+      h2 {
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      .inputItem {
+        margin-bottom: 10px;
+        label {
+          margin-left: 10px;
+        }
+        .priceButton {
+          margin-top: 10px;
+          display: inline-block;
+          outline: 0;
+          border: 0;
+          cursor: pointer;
+          background-color: #4299e1;
+          border-radius: 4px;
+          padding: 8px 16px;
+          font-size: 16px;
+          font-weight: 700;
+          color: white;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+
+  .right {
+    flex: 3;
+
+    .catImg {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      margin-bottom: 50px;
+    }
+  }
+}
+@include devices(tablet) {
+  .products {
+    flex-direction: column;
+    padding: 10px 20px;
+    .left {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 20px;
+      .filterItem {
+        button {
+          outline: 0;
+          border: 0;
+          cursor: pointer;
+          background-color: #4299e1;
+          border-radius: 4px;
+          padding: 14px 8px 0px 8px;
+          font-size: 16px;
+          font-weight: 700;
+          color: white;
+          margin-bottom: 10px;
+        }
+      }
+
+      .inputItem {
+        margin-top: 10px;
+      }
+      h2 {
+        cursor: pointer;
+        font-size: medium;
+      }
+      #off {
+        .inputItem {
+          display: none;
+        }
+      }
+      #on {
+        height: 300px;
+        .sort {
+          position: absolute;
+          left: 10px;
+        }
+      }
+      #less {
+        .inputItem {
+          display: none;
+        }
+      }
+      #more {
+        height: 300px;
+        .sort {
+          position: absolute;
+          left: 10px;
+        }
+      }
+      #moins {
+        .inputItem {
+          display: none;
+        }
+      }
+      #plus {
+        height: 300px;
+        .inputItem {
+          position: absolute;
+          left: 10px;
+        }
+      }
+    }
+  }
+}
