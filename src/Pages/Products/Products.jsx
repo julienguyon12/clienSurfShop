@@ -146,8 +146,7 @@ const Products = () => {
               ? 'something went wrong'
               : productsLoading
               ? 'loading'
-              : process.env.REACT_APP_UPLOAD_URL +
-                products?.attributes?.img?.data?.attributes?.url
+              : products?.attributes?.img?.data?.attributes?.url
           }
           alt=''
         />
