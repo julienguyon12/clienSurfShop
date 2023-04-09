@@ -129,7 +129,6 @@
         position: absolute;
         flex-direction: column;
         justify-content: flex-start;
-        margin-top: 250px;
         height: fit-content;
         z-index: 1;
         background-color: white;
@@ -148,9 +147,6 @@
     }
     .center {
       font-size: 25px;
-    }
-    .links {
-      margin-top: 50px;
     }
   }
 }
