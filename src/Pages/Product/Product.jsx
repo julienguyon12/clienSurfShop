@@ -14,6 +14,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(0);
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
   const dispatch = useDispatch();
+  console.log(data);
   return (
     <div className='product'>
       {error ? (
@@ -25,10 +26,7 @@ const Product = () => {
           <div className='left'>
             <div className='images'>
               <img
-                src={
-                  // process.env.REACT_APP_UPLOAD_URL +
-                  data?.attributes?.img?.data?.attributes?.url
-                }
+                src={data?.attributes?.img?.data?.attributes?.url}
                 alt=''
                 onClick={(e) => setSelectedImg('img')}
               />
@@ -93,8 +91,19 @@ const Product = () => {
             </div>
             <div className='info'>
               <span>Vendor: Polo</span>
-              <span>Product Type: T-Shirt</span>
-              <span>Tag: T-Shirt, Women, Top</span>
+              <span>
+                Product Type:{' '}
+                {data?.attributes?.cotegories?.data[0]?.attributes?.title}
+              </span>
+              <span>
+                Tag: {data?.attributes?.cotegories?.data[0]?.attributes?.title}{' '}
+                {data?.attributes?.sub_categories?.data[0]?.attributes?.title}{' '}
+                {data?.attributes?.sub_categories?.data[1]?.attributes?.title}{' '}
+                {data?.attributes?.sub_categories?.data[2]?.attributes?.title}{' '}
+                {data?.attributes?.sub_categories?.data[3]?.attributes?.title}{' '}
+                {data?.attributes?.sub_categories?.data[4]?.attributes?.title}{' '}
+                {data?.attributes?.sub_categories?.data[5]?.attributes?.title}{' '}
+              </span>
             </div>
             <hr />
             <div className='info'>

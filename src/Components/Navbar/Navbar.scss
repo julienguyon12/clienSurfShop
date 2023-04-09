@@ -142,9 +142,15 @@
   }
 }
 @include devices(mobile) {
-  .navbar .wrapper .icons {
-    .icon {
+  .navbar .wrapper {
+    .icons .icon {
       display: none;
+    }
+    .center {
+      font-size: 25px;
+    }
+    .links {
+      margin-top: 50px;
     }
   }
 }
