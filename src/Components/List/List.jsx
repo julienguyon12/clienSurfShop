@@ -4,10 +4,15 @@ import Card from '../Card/Card';
 import useFetch from '../../Hooks/useFetch';
 
 const List = ({ maxPrice, sort, catId, subCats }) => {
+  console.log(subCats);
   const { data, loading, error } = useFetch(
-    `/products?populate=*&[filters][cotegories][id][$eq]= ${catId}${subCats.map(
-      (item) => `&[filters][sub_categories][id][$eq]=${item}`
-    )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
+    `/products?populate=*&[filters][cotegories][id][$eq]= ${catId}${
+      subCats.length > 0
+        ? `&[filters][sub_categories][id][$eq]=${subCats.join(
+            '&[filters][sub_categories][id][$eq]='
+          )}`
+        : ''
+    }&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`
   );
   return (
     <div className='list'>
@@ -17,17 +22,17 @@ const List = ({ maxPrice, sort, catId, subCats }) => {
         <div className='loading'>
           <div>Loading</div>
           <svg
-            class='spinner'
+            className='spinner'
             width='65px'
             height='65px'
             viewBox='0 0 66 66'
             xmlns='http://www.w3.org/2000/svg'
           >
             <circle
-              class='path'
+              className='path'
               fill='none'
-              stroke-width='6'
-              stroke-linecap='round'
+              strokeWidth='6'
+              strokeLinecap='round'
               cx='33'
               cy='33'
               r='30'
