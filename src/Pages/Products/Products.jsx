@@ -59,7 +59,7 @@ const Products = () => {
             {error
               ? 'something went wrong'
               : loading
-              ? 'loading'
+              ? ''
               : data?.map((item) => (
                   <div className='inputItem' key={item.id}>
                     <input

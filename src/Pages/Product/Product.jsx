@@ -11,7 +11,7 @@ import { addToCart } from '../../redux/cartReducer';
 const Product = () => {
   const id = useParams().id;
   const [selectedImg, setSelectedImg] = useState('img');
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
   const dispatch = useDispatch();
   console.log(data);
@@ -20,7 +20,26 @@ const Product = () => {
       {error ? (
         'something went wrong'
       ) : loading ? (
-        'loading'
+        <div className='loading'>
+          <div>Loading</div>
+          <svg
+            class='spinner'
+            width='65px'
+            height='65px'
+            viewBox='0 0 66 66'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <circle
+              class='path'
+              fill='none'
+              stroke-width='6'
+              stroke-linecap='round'
+              cx='33'
+              cy='33'
+              r='30'
+            ></circle>
+          </svg>
+        </div>
       ) : (
         <>
           <div className='left'>
