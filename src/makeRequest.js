@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 export const makeRequest = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   headers: {
     Authorization:
-      'bearer 0606ca86791eb9afb5368eea7f04c0fbef5df7d85a5836de6651890e4870c3165575e9a6b0e1c7922918ad4516e513bc4d3b04d9ddfce4e409c79b0c833ce5661946405c66e6ea66da704d297007b31bbc10867cee271723e7839430c29da1fca1e286fd01392ef95c76d93162595d7706374fb7b1c6be0caf3904f5b087d538',
+      "bearer fea60f53f0f3c9f79da60b1e901d759fe9d6917f01d9159fdd1353b1222b8afecac4e669ee8b8eb74b9a820ce2bc62e6c096ed47a45aea29b9cc9b58a97bc74813d579d28750664e9e4b1a84928650aafe1bb7bb4878e3a3eb161acc52a33739854cdd9381576c525fb52785bb8fc316a4b76380ddac00e23a6737c7b2626c71",
   },
 });
